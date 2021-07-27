@@ -4,11 +4,13 @@
 
 import 'dart:io';
 
+import 'package:flutter/foundation.dart';
+
 class PlaceCoOrds{
   final double latitude;
   final double longitude;
   final String address;
-  PlaceCoOrds({required this.latitude,required this.longitude,this.address=''});
+  PlaceCoOrds({@required this.latitude,@required this.longitude,this.address=''});
 }
 
 class Place{
@@ -18,10 +20,10 @@ class Place{
   final File image; //SInce we will be loading images from the device and not any web url
   Place(
     {
-      required this.id,
-      required this.placeName,
-      required this.location,
-      required this.image
+      @required this.id,
+      @required this.placeName,
+      @required this.location,
+      @required this.image
       });
 
   
