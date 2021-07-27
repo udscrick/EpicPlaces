@@ -1,3 +1,5 @@
+
+
 import 'package:epicplaces/providers/places_provider.dart';
 import 'package:epicplaces/screens/add_place_screen.dart';
 import 'package:epicplaces/screens/places_list_screen.dart';
@@ -21,7 +23,7 @@ class MyApp extends StatelessWidget {
         ),
         home: PlacesListScreen(),
         routes: {
-          AddPlaceScreen.routeName:(ctx)=>const AddPlaceScreen()
+          AddPlaceScreen.routeName:(ctx)=>AddPlaceScreen()
         },
       ),
     );
