@@ -1,10 +1,12 @@
 import 'package:sqflite/sqflite.dart' as sql;
 import 'package:path/path.dart' as path;
+import 'package:sqflite/sqlite_api.dart';
 
 class DBHelper{
-  static Future<void> insert(String table, Map<String,Object> data)async{
-   final dbPath =  await sql.getDatabasesPath();//WIll give the correct path of db in ios and android
-   final sqlDb = await sql.openDatabase(
+
+  static Future<Database> database() async{
+    final dbPath =  await sql.getDatabasesPath();//WIll give the correct path of db in ios and android
+    return sql.openDatabase(
      //Will create new if not already present
      path.join(dbPath,'places.db'),
      onCreate: (db,version){
@@ -13,6 +15,16 @@ class DBHelper{
      },
      version: 1
    );
-   await sqlDb.insert(table, data,conflictAlgorithm: sql.ConflictAlgorithm.replace);
+  }
+
+  static Future<void> insert(String table, Map<String,Object> data)async{
+   
+   final db = await DBHelper.database();
+   db.insert(table, data,conflictAlgorithm: ConflictAlgorithm.replace);
+  }
+
+  static Future<List<Map<String,dynamic>>> getData(String table)async{
+    final db = await DBHelper.database();
+    return db.query(table);
   }
 }
