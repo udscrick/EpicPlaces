@@ -1,3 +1,4 @@
+import 'package:epicplaces/widgets/location_input.dart';
 import 'package:flutter/material.dart';
 import '../widgets/image_input.dart';
 import 'dart:io';
@@ -46,7 +47,12 @@ class _AddPlaceScreenState extends State<AddPlaceScreen> {
                     controller: _titleController,
                   ),
                  const SizedBox(height: 10,),
-                 ImageInput(_selectImage)
+                 ImageInput(_selectImage),
+                 const SizedBox(
+                   height: 10,
+                 ),
+                 LocationInput()
+
                 ],
               ),
             ),

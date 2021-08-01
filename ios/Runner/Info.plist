@@ -2,6 +2,7 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -22,6 +23,10 @@
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSLocationWhenInUseUsageDescription</key>
+<string>Kindly Allow access to device location</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+<string>Kindly Allow access to device location</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Please allow the access the library!</string>
 	<key>NSCameraUsageDescription</key>
