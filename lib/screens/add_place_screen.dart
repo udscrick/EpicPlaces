@@ -1,3 +1,5 @@
+import 'package:epicplaces/models/place.dart';
+import 'package:epicplaces/widgets/location_input.dart';
 import 'package:flutter/material.dart';
 import '../widgets/image_input.dart';
 import 'dart:io';
@@ -16,15 +18,20 @@ class AddPlaceScreen extends StatefulWidget {
 class _AddPlaceScreenState extends State<AddPlaceScreen> {
   final _titleController = TextEditingController();
   File _pickedImage;
+  PlaceCoOrds _pickedLocation;
   void _selectImage(File pickedImage){
     _pickedImage = pickedImage;
   }
   void _savePlaceOnSubmit(){
-    if(_titleController.text.isEmpty||_pickedImage==null){
+    if(_titleController.text.isEmpty||_pickedImage==null||_pickedLocation==null){
       return;
     }
-    Provider.of<PlacesProvider>(context,listen: false).addPlace(_titleController.text, _pickedImage);
+    Provider.of<PlacesProvider>(context,listen: false).addPlace(_titleController.text, _pickedImage,_pickedLocation);
     Navigator.of(context).pop();
+  }
+
+  void _selectPlace(double lat,double lng){
+_pickedLocation = PlaceCoOrds(latitude: lat, longitude: lng);
   }
   @override
   Widget build(BuildContext context) {
@@ -46,7 +53,12 @@ class _AddPlaceScreenState extends State<AddPlaceScreen> {
                     controller: _titleController,
                   ),
                  const SizedBox(height: 10,),
-                 ImageInput(_selectImage)
+                 ImageInput(_selectImage),
+                 const SizedBox(
+                   height: 10,
+                 ),
+                 LocationInput(_selectPlace)
+
                 ],
               ),
             ),

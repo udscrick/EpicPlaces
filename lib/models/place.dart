@@ -10,7 +10,7 @@ class PlaceCoOrds{
   final double latitude;
   final double longitude;
   final String address;
-  PlaceCoOrds({@required this.latitude,@required this.longitude,this.address=''});
+  const PlaceCoOrds({@required this.latitude,@required this.longitude,this.address=''});
 }
 
 class Place{

@@ -2,6 +2,7 @@
 
 import 'package:epicplaces/providers/places_provider.dart';
 import 'package:epicplaces/screens/add_place_screen.dart';
+import 'package:epicplaces/screens/place_detail_screen.dart';
 import 'package:epicplaces/screens/places_list_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -23,7 +24,8 @@ class MyApp extends StatelessWidget {
         ),
         home: PlacesListScreen(),
         routes: {
-          AddPlaceScreen.routeName:(ctx)=>AddPlaceScreen()
+          AddPlaceScreen.routeName:(ctx)=>AddPlaceScreen(),
+          PlaceDetail.routeName:(ctx)=>PlaceDetail()
         },
       ),
     );
