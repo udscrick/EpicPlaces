@@ -11,7 +11,7 @@ class DBHelper{
      path.join(dbPath,'places.db'),
      onCreate: (db,version){
        //Code to initialize db when it is creaed for the first time
-       return db.execute("CREATE TABLE user_places(id TEXT PRIMARY KEY,title TEXT,image TEXT)");//Execute can run sql queries
+       return db.execute("CREATE TABLE user_places(id TEXT PRIMARY KEY,title TEXT,image TEXT,loc_lat REAL,loc_lng REAL,address TEXT)");//Execute can run sql queries
      },
      version: 1
    );
